@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="django form with utf-8">
+    <meta name="author" content="wichit2s">
+    <title>Linux Services</title>
+
+    {% load static %}
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/creative.css' %}" rel="stylesheet" type="text/css">
+    <style>
+      .filled {
+        text-align: center;
+        padding: 5px;
+      }
+      .spacing {
+        padding: 1em;
+      }
+    </style>
+
+  </head>
+  <body> 
+     <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">S.T.A.R</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto my-2 my-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="/home">Home</a>
+                </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/services">Services</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-10 align-self-end">
+          <h1 class="text-uppercase text-white font-weight-bold">S.T.A.R</h1>
+          <hr class="divider my-4">
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+          <p class="text-white-75 font-weight-light mb-5">Start Bootstrap can help you build better websites using the Bootstrap framework! Just download a theme and start customizing, no strings attached!</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="page-section bg-primary" id="about">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <nav> <h1> Buy here </h1> </nav>
+    <div>
+      <section class="filled">
+        <form action="services" method="POST" enctype="multipart/form-data;charset=UTF-8">
+          {% csrf_token %}
+          <div class="spacing"><input class="filled" type="text" name="icon" value="Name Product"/></div>
+          <div class="spacing"><input class="filled" type="text" name="title" value="Price"/></div>
+          <div class="spacing"><input class="filled" type="text" name="detail" value="Number"/></div>
+          <div class="spacing"><button style="padding: 1em;" type="submit">Submit</button></div>
+        </form>
+      </section>
+      <div>
+       <table style="width:100%; border: 1px solid white; padding: 1em; background: #fff;">
+        <tr>
+          <th>Name Product</th>
+          <th>Price</th>
+          <th>Number</th>
+        </tr>
+        {% for s in services %}
+        <tr>
+          <td> <i class="fa {{s.icon}}"></i> {{ s.icon }}</td>
+          <td>{{ s.title }}</td>
+          <td>{{ s.detail }}</td>
+        </tr>
+        {% endfor %}
+      </table> 
+      </div>
+    </div>
+    <footer>
+      <div>
+        <div>Copyright &copy; 2019 </div>
+      </div>
+    </footer>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div>
+     
+     
+    </div>
+      <!-- Footer -->
+  <footer class="bg-light py-5">
+      <div class="container">
+        <div class="small text-center text-muted">Copyright &copy; 2019 - S.T.A.R</div>
+      </div>
+    </footer>
+  
+  </body>
+
+</html>
